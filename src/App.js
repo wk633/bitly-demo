@@ -16,7 +16,9 @@ class App extends Component {
     super();
     this.state = {
       curInput: '',
-      history: [1,2,3]
+      history: [{title: "Google", shortUrl: "http://bit.ly/2FXDDIF", longUrl: "http://google.com/", globalCount: 1},
+      {title: "Google", shortUrl: "http://bit.ly/2FXDDIF", longUrl: "http://google.com/", globalCount: 1},
+      {title: "Google", shortUrl: "http://bit.ly/2FXDDIF", longUrl: "http://google.com/", globalCount: 1}]
     }
   }
   componentDidMount(){
@@ -54,7 +56,7 @@ class App extends Component {
               <div className="result-wrapper">
                 {
                   this.state.history.map(item => {
-                    return <RstElem></RstElem>
+                    return <RstElem key={item.shortUrl} info={item}></RstElem>
                   })
                 }
               </div>

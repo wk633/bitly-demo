@@ -5,15 +5,15 @@ class RstElem extends Component{
         return (
             <div className="result-element">
                 <div className="first-line">
-                Bulletproof Coffee: Debunking the Hot Buttered Hype
+                {this.props.info.title.length > 0 ? this.props.info.title : this.props.info.longUrl}
                 </div>
                 <div className="second-line">
-                http:// gizmodo.com/xxxxx
+                {this.props.info.longUrl}
                 </div>
                 <div className="last-line">
-                <a>bit.ly/19iOLs6B3</a>
+                <a href={this.props.info.shortUrl}>{this.props.info.shortUrl}</a>
                 <div className="stat-num-icon">
-                    <div className="stat-num">34,908</div><img className="click-icon" src={clickIcon}></img>
+                    <div className="stat-num">{this.props.info.globalCount}</div><img className="click-icon" src={clickIcon}></img>
                 </div>
                 </div>
             </div>
