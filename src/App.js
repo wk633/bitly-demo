@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import background from './background-image.png';
 import logo from './logo.svg';
 import clickIcon from './click-icon.svg';
-import './App.css';
+import config from './config/config.js';
+const BitlySDK = window.BitlySDK;
+const bitlySDK = new BitlySDK({
+  login: config.login,
+  apiKey: config.apiKey
+});
 
 class App extends Component {
+  componentDidMount(){
+    bitlySDK.shorten('http://google.com/').then(function(result){
+      console.log(result);
+    });
+  }
   render() {
     return (
       <div className="App">
