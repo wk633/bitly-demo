@@ -1,28 +1,69 @@
-.App {
+.App{
+  font-family: sans-serif;
+}
+.App-header {
+  height: 500px;
+  width: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.App-nav{
+  padding: 20px 86px;
+  display: flex;
+  align-items:center;
+}
+.App-logo{
+  width: 76px;
+  height: 50px;
+  margin-right: 50px;
+}
+.App-link{
+  color: white;
+  font-size: 10px;
+  padding-right: 30px;
+}
+.App-slogan{
+  color: white;
+  font-size: 38px;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.App-sub-slogan{
   color: white;
+  font-size:18px;
+  text-align: center;
+  padding-top: 12px;
+  font-weight: lighter;
 }
-
-.App-title {
-  font-size: 1.5em;
+.App-input{
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
 }
-
-.App-intro {
-  font-size: large;
+.input-area{
+  width: 550px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: lighter;
+  color:#9b9b9b;
+  padding-left: 20px;
+  border-radius: 4px 0px 0px 4px;
+  outline: none;
+  border: 1px transparent solid;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.input-area:focus{
+  border: 1px #ee6123 solid;
+  border-right-color: transparent;
+}
+.short-btn{
+  text-align: center;
+  height: 34px;
+  font-size: 10px;
+  color: white;
+  padding-top: 18px;
+  padding-left: 26px;
+  padding-right: 26px;
+  background-color:#ee6123;
+  border-radius: 0px 4px 4px 0px;
+  border: 1px transparent solid;
+  cursor: pointer;
 }
