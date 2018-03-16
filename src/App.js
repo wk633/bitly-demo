@@ -10,9 +10,20 @@ const bitlySDK = new BitlySDK({
 });
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      curInput: '',
+      history: []
+    }
+  }
   componentDidMount(){
     bitlySDK.shorten('http://google.com/').then(function(result){
       console.log(result);
+      Promise.all([bitlySDK.info(result.url), bitlySDK.clicks(result.url)])
+      .then(function(rst){
+        console.log(rst);
+      });
     });
   }
   render() {
