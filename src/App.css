@@ -2,9 +2,9 @@
   font-family: sans-serif;
 }
 .App-header {
-  height: 500px;
+  height: 480px;
   width: 100%;
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .App-nav{
@@ -26,13 +26,15 @@
   color: white;
   font-size: 38px;
   text-align: center;
+  padding-top: 80px;
 }
 .App-sub-slogan{
   color: white;
-  font-size:18px;
+  font-size:16px;
+  letter-spacing: 1px;
   text-align: center;
   padding-top: 12px;
-  font-weight: lighter;
+  font-weight: 100;
 }
 .App-input{
   padding-top: 40px;
@@ -40,13 +42,13 @@
   justify-content: center;
 }
 .input-area{
-  width: 550px;
-  height: 50px;
+  width: 520px;
+  height: 48px;
   font-size: 15px;
   font-weight: lighter;
-  color:#9b9b9b;
+  color: #9b9b9b;
   padding-left: 20px;
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 2px 0px 0px 2px;
   outline: none;
   border: 1px transparent solid;
 }
@@ -56,14 +58,76 @@
 }
 .short-btn{
   text-align: center;
-  height: 34px;
+  height: 32px;
   font-size: 10px;
   color: white;
   padding-top: 18px;
   padding-left: 26px;
   padding-right: 26px;
   background-color:#ee6123;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0px 2px 2px 0px;
   border: 1px transparent solid;
   cursor: pointer;
+}
+.App-result-display{
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.result-wrapper{
+  width: 600px;
+  background-color: white;
+  border-radius: 1px;
+  padding: 20px;
+  padding-top: 0px;
+  box-shadow: 1px 1px 1px #f4f4f4;
+}
+.result-element{
+  padding-top: 20px;
+  border-bottom: 1px solid #dde0e2;
+  padding-bottom: 12px;
+}
+.result-element:last-child{
+  border-bottom: 1px solid transparent;
+}
+.first-line{
+  color: #444444;
+  font-weight: lighter;
+  font-size: 13px;
+}
+.second-line{
+  color: #9b9b9b;
+  font-weight: lighter;
+  font-size: 11px;
+  padding-top: 6px;
+}
+.last-line{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 28px;
+}
+.last-line > a{
+  color: #ee6123;
+  font-size: 11px;
+  font-weight: lighter;
+}
+.last-line div {
+  color: #9b9b9b;
+  font-size: 11px;
+  font-weight: lighter;
+}
+.stat-num-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stat-num{
+  height: 18px;
+  line-height: 22px;
+}
+.click-icon{
+  padding-left: 6px;
+  width: 18px;
+  height: 18px;
 }
