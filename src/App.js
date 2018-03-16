@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import background from './background-image.png';
 import logo from './logo.svg';
-import clickIcon from './click-icon.svg';
+
 import config from './config/config.js';
+import RstElem from './RstElem.js';
+
 const BitlySDK = window.BitlySDK;
 const bitlySDK = new BitlySDK({
   login: config.login,
@@ -14,17 +16,17 @@ class App extends Component {
     super();
     this.state = {
       curInput: '',
-      history: []
+      history: [1,2,3]
     }
   }
   componentDidMount(){
-    bitlySDK.shorten('http://google.com/').then(function(result){
-      console.log(result);
-      Promise.all([bitlySDK.info(result.url), bitlySDK.clicks(result.url)])
-      .then(function(rst){
-        console.log(rst);
-      });
-    });
+    // bitlySDK.shorten('http://google.com/').then(function(result){
+    //   console.log(result);
+    //   Promise.all([bitlySDK.info(result.url), bitlySDK.clicks(result.url)])
+    //   .then(function(rst){
+    //     console.log(rst);
+    //   });
+    // });
   }
   render() {
     return (
@@ -50,52 +52,11 @@ class App extends Component {
             </div>
             <div className="App-result-display">
               <div className="result-wrapper">
-              
-                <div className="result-element">
-                  <div className="first-line">
-                    Bulletproof Coffee: Debunking the Hot Buttered Hype
-                  </div>
-                  <div className="second-line">
-                    http:// gizmodo.com/xxxxx
-                  </div>
-                  <div className="last-line">
-                    <a>bit.ly/19iOLs6B3</a>
-                    <div className="stat-num-icon">
-                      <div className="stat-num">34,908</div><img className="click-icon" src={clickIcon}></img>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="result-element">
-                  <div className="first-line">
-                    Bulletproof Coffee: Debunking the Hot Buttered Hype
-                  </div>
-                  <div className="second-line">
-                    http:// gizmodo.com/xxxxx
-                  </div>
-                  <div className="last-line">
-                    <a>bit.ly/19iOLs6B3</a>
-                    <div className="stat-num-icon">
-                      <div className="stat-num">34,908</div><img className="click-icon" src={clickIcon}></img>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="result-element">
-                  <div className="first-line">
-                    Bulletproof Coffee: Debunking the Hot Buttered Hype
-                  </div>
-                  <div className="second-line">
-                    http:// gizmodo.com/xxxxx
-                  </div>
-                  <div className="last-line">
-                    <a>bit.ly/19iOLs6B3</a>
-                    <div className="stat-num-icon">
-                      <div className="stat-num">34,908</div><img className="click-icon" src={clickIcon}></img>
-                    </div>
-                  </div>
-                </div>
-
+                {
+                  this.state.history.map(item => {
+                    return <RstElem></RstElem>
+                  })
+                }
               </div>
             </div>
           </div>
