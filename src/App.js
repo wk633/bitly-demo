@@ -5,6 +5,8 @@ import logo from './logo.svg';
 import config from './config/config.js';
 import RstElem from './RstElem.js';
 
+import Button from 'antd/lib/button';
+
 const BitlySDK = window.BitlySDK;
 const bitlySDK = new BitlySDK({
   login: config.login,
@@ -67,6 +69,7 @@ class App extends Component {
             <div className="App-link">ENTERPRISE</div>
             <div className="App-link">RESOURCES</div>
             <div className="App-link">ABOUT</div>
+            <Button>Button</Button>
           </nav>
           <div className="App-slogan">
             SHORTEN. SHARE. MEASURE.
