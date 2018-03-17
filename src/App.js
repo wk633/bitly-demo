@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import config from './config/config.js';
 import RstElem from './RstElem.js';
 
-import Button from 'antd/lib/button';
+import {message} from 'antd';
 
 const BitlySDK = window.BitlySDK;
 const bitlySDK = new BitlySDK({
@@ -27,6 +27,7 @@ class App extends Component {
 
   }
   shortenHandler(){
+    var message_copy = message;
     console.log(this.state.curInput);
     bitlySDK.shorten(this.state.curInput)
     .then((result) => {
@@ -48,10 +49,12 @@ class App extends Component {
         this.setState({
           history: history
         })
+        message.success("Shorten url success!");
       })
     })
-    .catch(e=>{
-      console.log(e);
+    .catch(e => {
+      // console.log(e.toString());
+      message_copy.error(e.toString());
     });
   }
   inputHandler(e){
@@ -69,7 +72,6 @@ class App extends Component {
             <div className="App-link">ENTERPRISE</div>
             <div className="App-link">RESOURCES</div>
             <div className="App-link">ABOUT</div>
-            <Button>Button</Button>
           </nav>
           <div className="App-slogan">
             SHORTEN. SHARE. MEASURE.

@@ -2,7 +2,7 @@
   font-family: 'Helvetica';
 }
 .App-header {
-  height: 480px;
+  height: 500px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -58,7 +58,7 @@
 }
 .short-btn{
   text-align: center;
-  height: 32px;
+  height: 48px;
   font-size: 10px;
   color: white;
   padding-top: 18px;
