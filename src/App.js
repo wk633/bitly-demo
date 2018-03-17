@@ -24,7 +24,12 @@ class App extends Component {
     this.shortenHandler = this.shortenHandler.bind(this);
   }
   componentDidMount(){
-
+    const history = JSON.parse(localStorage.getItem("bitly-history"));
+    if(history !== null && history.length !== 0){
+      this.setState({
+        history: history
+      })
+    }
   }
   shortenHandler(){
     var message_copy = message;
@@ -49,6 +54,7 @@ class App extends Component {
         this.setState({
           history: history
         })
+        localStorage.setItem('bitly-history', JSON.stringify(this.state.history))
         message.success("Shorten url success!");
       })
     })
@@ -67,7 +73,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header" style={{backgroundImage: `url(${background})`}}>
           <nav className="App-nav">
-            <img src={logo} className="App-logo"></img>
+            <img src={logo} alt="logo" className="App-logo"></img>
             <div className="App-link">TOUR</div>
             <div className="App-link">ENTERPRISE</div>
             <div className="App-link">RESOURCES</div>

@@ -13,7 +13,7 @@ class RstElem extends Component{
                 <div className="last-line">
                 <a target="_blank" href={this.props.info.shortUrl}>{this.props.info.shortUrl}</a>
                 <div className="stat-num-icon">
-                    <div className="stat-num">{this.props.info.globalCount}</div><img className="click-icon" src={clickIcon}></img>
+                    <div className="stat-num">{this.props.info.globalCount}</div><img alt="click-icon" className="click-icon" src={clickIcon}></img>
                 </div>
                 </div>
             </div>
