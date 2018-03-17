@@ -22,6 +22,12 @@ class App extends Component {
     }
     this.inputHandler = this.inputHandler.bind(this);
     this.shortenHandler = this.shortenHandler.bind(this);
+    this.handleEnterKey = this.handleEnterKey.bind(this);
+  }
+  handleEnterKey(e){
+    if(e.keyCode === 13){
+      this.shortenHandler();
+    }
   }
   componentDidMount(){
     const history = JSON.parse(localStorage.getItem("bitly-history"));
@@ -90,7 +96,7 @@ class App extends Component {
           </div>
           <div>
             <div className="App-input">
-              <input value={this.state.curInput} onChange={this.inputHandler} className="input-area" placeholder="Paste a link to shorten it"/>
+              <input onKeyUp={this.handleEnterKey} value={this.state.curInput} onChange={this.inputHandler} className="input-area" placeholder="Paste a link to shorten it"/>
               <div onClick={this.shortenHandler} className="short-btn">SHORTEN</div>
             </div>
             <div className={this.state.history.length <= 1 ? "App-result-display-sp" : "App-result-display"}>
