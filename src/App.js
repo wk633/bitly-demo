@@ -32,6 +32,9 @@ class App extends Component {
     }
   }
   shortenHandler(){
+    this.setState({
+      curInput: ""
+    })
     var message_copy = message;
     console.log(this.state.curInput);
     bitlySDK.shorten(this.state.curInput)
@@ -87,7 +90,7 @@ class App extends Component {
           </div>
           <div>
             <div className="App-input">
-              <input onChange={this.inputHandler} className="input-area" placeholder="Paste a link to shorten it"/>
+              <input value={this.state.curInput} onChange={this.inputHandler} className="input-area" placeholder="Paste a link to shorten it"/>
               <div onClick={this.shortenHandler} className="short-btn">SHORTEN</div>
             </div>
             <div className={this.state.history.length <= 1 ? "App-result-display-sp" : "App-result-display"}>
