@@ -16,19 +16,46 @@ class App extends Component {
     super();
     this.state = {
       curInput: '',
-      history: [{title: "Google", shortUrl: "http://bit.ly/2FXDDIF", longUrl: "http://google.com/", globalCount: 1},
-      {title: "Google", shortUrl: "http://bit.ly/2FXDDIF", longUrl: "http://google.com/", globalCount: 1},
-      {title: "Google", shortUrl: "http://bit.ly/2FXDDIF", longUrl: "http://google.com/", globalCount: 1}]
+      history: []
     }
+    this.inputHandler = this.inputHandler.bind(this);
+    this.shortenHandler = this.shortenHandler.bind(this);
   }
   componentDidMount(){
-    // bitlySDK.shorten('http://google.com/').then(function(result){
-    //   console.log(result);
-    //   Promise.all([bitlySDK.info(result.url), bitlySDK.clicks(result.url)])
-    //   .then(function(rst){
-    //     console.log(rst);
-    //   });
-    // });
+
+  }
+  shortenHandler(){
+    console.log(this.state.curInput);
+    bitlySDK.shorten(this.state.curInput)
+    .then((result) => {
+      console.log(result);
+      Promise.all([bitlySDK.info(result.url), bitlySDK.clicks(result.url), bitlySDK.expand(result.url)])
+      .then((rst) => {
+        console.log(rst);
+        const history = this.state.history;
+        const title = rst[0]["title"];
+        const longUrl = rst[2]["long_url"];
+        const globalCount = rst[1][0]["global_clicks"];
+        const shortUrl = rst[2]["short_url"];
+        history.push({
+          title: (title != null && title.length > 0) ? title : rst[2]["long_url"],
+          longUrl: longUrl,
+          shortUrl: shortUrl,
+          globalCount: globalCount
+        })
+        this.setState({
+          history: history
+        })
+      })
+    })
+    .catch(e=>{
+      console.log(e);
+    });
+  }
+  inputHandler(e){
+    this.setState({
+      curInput: e.target.value
+    })
   }
   render() {
     return (
@@ -49,14 +76,14 @@ class App extends Component {
           </div>
           <div>
             <div className="App-input">
-              <input className="input-area" placeholder="Paste a link to shorten it"/>
-              <div className="short-btn">SHORTEN</div>
+              <input onChange={this.inputHandler} className="input-area" placeholder="Paste a link to shorten it"/>
+              <div onClick={this.shortenHandler} className="short-btn">SHORTEN</div>
             </div>
             <div className="App-result-display">
               <div className="result-wrapper">
                 {
-                  this.state.history.map(item => {
-                    return <RstElem key={item.shortUrl} info={item}></RstElem>
+                  this.state.history.map((item, idx) => {
+                    return <RstElem key={idx} info={item}></RstElem>
                   })
                 }
               </div>
