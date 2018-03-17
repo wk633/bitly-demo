@@ -75,6 +75,19 @@
   justify-content: center;
   margin-bottom: 50px;
 }
+.App-result-display-sp{
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.result-wrapper-sp{
+  width: 600px;
+  background-color: white;
+  border-radius: 1px;
+  box-shadow: 1px 1px 1px #f4f4f4;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .result-wrapper{
   width: 600px;
   background-color: white;

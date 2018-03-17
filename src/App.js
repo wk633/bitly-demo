@@ -79,8 +79,8 @@ class App extends Component {
               <input onChange={this.inputHandler} className="input-area" placeholder="Paste a link to shorten it"/>
               <div onClick={this.shortenHandler} className="short-btn">SHORTEN</div>
             </div>
-            <div className="App-result-display">
-              <div className="result-wrapper">
+            <div className={this.state.history.length <= 1 ? "App-result-display-sp" : "App-result-display"}>
+              <div className={this.state.history.length<=1 ? "result-wrapper-sp" : "result-wrapper"}>
                 {
                   this.state.history.map((item, idx) => {
                     return <RstElem key={idx} info={item}></RstElem>
