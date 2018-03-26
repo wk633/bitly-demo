@@ -4,7 +4,7 @@ this is a demo for Bitly Interview.
 
 ### run project
 
-first you should **rename  /src/config/config.sample.js** to **config.sample.js**, then fill you login and apiKey. After that, run
+first you should **rename  /src/config/config.sample.js** to **config.js**, then fill you login and apiKey. After that, run
 ```bash
 npm run start
 ```
